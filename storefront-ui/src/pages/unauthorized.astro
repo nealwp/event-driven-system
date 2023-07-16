@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<astro:head>
+  <title>Unauthorized</title>
+</astro:head>
+<Layout>
+<main>
+  <h1>Unauthorized Access</h1>
+  <p>You are not authorized to view this page.</p>
+  <p>Please log in to access this content.</p>
+  <a href="/">Go to Homepage</a>
+</main>
+</Layout>
+
+<style>
+  /* Your custom styles for the Unauthorized page go here */
+  main {
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
