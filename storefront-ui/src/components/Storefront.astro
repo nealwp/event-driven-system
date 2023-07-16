@@ -1,0 +1,66 @@
+---
+layout: "Layout.astro"
+const items = Array.from({length: 12}) 
+---
+<astro:head>
+  <title>Storefront Products</title>
+</astro:head>
+
+<main>
+  <h1>Products</h1>
+  <div class="products">
+      {items.map(item => (
+          <div class="product">
+              <img
+                  src="https://picsum.photos/150"
+                  alt="Product Image"
+                  width="150"
+                  height="150"
+              />
+              <h3>Product Title</h3>
+              <p>Price: $XX.XX</p>
+              <button>Add to Cart</button>
+          </div>
+      ))}
+  </div>
+</main>
+
+<style>
+  /* Your custom styles for the storefront page go here */
+  main {
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .product {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  img {
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+// Define the page layout
+import Layout from "../layouts/Layout.astro"
+---
+
+<astro:head>
+  <title>My Cart</title>
+</astro:head>
+<Layout> 
+<main>
+    <h1>My Cart</h1>
+    <div class="cart-items">
+        <div class="cart-item">
+            <h3>Product Title 1</h3>
+            <p>Price: $XX.XX</p>
+            <p>Quantity: 2</p>
+        </div>
+        <div class="cart-item">
+            <h3>Product Title 2</h3>
+            <p>Price: $XX.XX</p>
+            <p>Quantity: 1</p>
+        </div>
+    </div>
+</main>
+
+</Layout>
+
+<style>
+  /* Your custom styles for the MyCart page go here */
+  main {
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  .cart-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .cart-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+  }
+</style>

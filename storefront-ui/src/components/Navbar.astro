@@ -1,0 +1,55 @@
+---
+interface Props {
+    showNav?: boolean;
+}
+const { showNav = true } = Astro.props
+---
+<nav class="navbar">
+  <h1 class="app-title">StoreFrontUI</h1>
+  <ul class="nav-links">
+    <li><a href="/products">Products</a></li>
+    <li><a href="/cart">My Cart</a></li>
+    <li><a href="/account">Account</a></li>
+    <li><a href="/">Logout</a></li>
+  </ul>
+</nav>
+
+<style>
+  /* Navbar styles */
+  .app-title {
+    color: #F9F871;
+    padding-left: 10px;
+  }
+
+  .navbar {
+    background-color: #007bff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+
+  .nav-links li {
+    margin-right: 20px;
+  }
+
+  .nav-links li:last-child {
+    margin-right: 0;
+  }
+
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    opacity: 0.8;
+  }
+</style>
