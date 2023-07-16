@@ -7,7 +7,7 @@ export default {
   dbCredentials: {
     user: "user_service",
     password: "password",
-    host: "127.0.0.1",
+    host: "localhost",
     port: 5432,
     database: "userdb"
   }

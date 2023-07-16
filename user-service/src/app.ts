@@ -1,5 +1,5 @@
 import { middleware } from "./middleware"
-import { router } from "./routes"
+import { router } from "./router"
 import { createServer } from "./server"
 import * as db from './db';
 
@@ -13,6 +13,6 @@ const app = createServer(middleware, router)
 
 db.initialize().then(() => {
     app.listen(PORT, () => {
-        console.log(`[${timestamp()}]: server started`)
+        console.log(`[${timestamp()}]: user service started`)
     })
 })
