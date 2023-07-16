@@ -26,3 +26,16 @@ export async function createUser(newUser: NewUser) {
     const { firstName, lastName, email } = newUser
     return db.insert(users).values({firstName, lastName, email}).returning()
 }
+
+export async function modifyAccountInfo(userInfo: NewUser) {
+    return await db.update(users).set({
+      firstName: userInfo.firstName,
+      lastName: userInfo.lastName,
+      addressLine1: userInfo.addressLine1,
+      addressLine2: userInfo.addressLine2,
+      city: userInfo.city,
+      state: userInfo.state,
+      zipCode: userInfo.zipCode,
+      phone: userInfo.phone,
+    }).where(eq(users.email, userInfo.email)).returning()
+}

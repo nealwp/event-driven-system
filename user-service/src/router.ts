@@ -19,7 +19,6 @@ router.post('/user/login', async (req: Request, res: Response) => {
 
 router.post('/user/create', async (req: Request, res: Response) => {
     const userInfo = req.body
-    console.log(userInfo)
     const result = await user.create(userInfo);
 
     if (result.success) {
@@ -30,6 +29,20 @@ router.post('/user/create', async (req: Request, res: Response) => {
         return res.redirect('http://localhost:3000/unauthorized')
     }
 
+})
+
+router.post('/user/account-info', async (req: Request, res: Response) => {
+    const userInfo = req.body
+    const result = await user.modifyInfo(userInfo);
+
+
+    if (result.success) {
+        console.log(`[${timestamp()}]: user "${result.user.email}" update success`)
+        return res.status(200).json(result).send();
+    } else {
+        console.log(`[${timestamp()}]: user update failure: ${result.reason}`)
+        return res.redirect('http://localhost:3000/unauthorized')
+    }
 })
 
 export { router }
