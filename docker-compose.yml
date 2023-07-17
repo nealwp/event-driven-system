@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+
+  userdb:
+    image: "postgres:14"
+    container_name: "userdb"
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=user_service
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=userdb
+
+
+  productdb:
+    image: "postgres:14"
+    container_name: "productdb"
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_USER=product_service
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=productdb
