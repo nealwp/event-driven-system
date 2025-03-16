@@ -3,7 +3,7 @@ version: "3.9"
 services:
 
   userdb:
-    image: "postgres:14"
+    image: "postgres"
     container_name: "userdb"
     ports:
       - 5432:5432
@@ -12,9 +12,8 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=userdb
 
-
   productdb:
-    image: "postgres:14"
+    image: "postgres"
     container_name: "productdb"
     ports:
       - 5433:5432
@@ -22,3 +21,19 @@ services:
       - POSTGRES_USER=product_service
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=productdb
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=solaris_cookie
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - 5672:5672
+      - 15672:15672
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 30s
+      retries: 3
